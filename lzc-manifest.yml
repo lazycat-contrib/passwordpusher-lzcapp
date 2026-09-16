@@ -9,7 +9,7 @@ application:
 services:
   pwpush:
     # upstream: pglombardo/pwpush:2.12.0
-    image: pglombardo/pwpush:2.12.0
+    image: registry.lazycat.cloud/czyt/pglombardo/pwpush:c02339ade2fa2794
     environment:
       - DATABASE_URL=sqlite3:///opt/PasswordPusher/data/pwpush.sqlite3
     binds:
