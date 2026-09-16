@@ -1,0 +1,38 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/password-pusher.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: pwpush
+build:
+  run_buildscript: false
+images:
+  # 主应用：上游有完整三段 SemVer tag（最高 2.12.0），排除 latest/nightly/pr-* 等别名
+  - id: pwpush
+    target: service
+    service: pwpush
+    source: pglombardo/pwpush
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    changelog_locales: [zh, en]
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Password Pusher
+    summary: "一个用来安全分享密码、文本甚至文件的工具，通过加密的一次性链接保护隐私"

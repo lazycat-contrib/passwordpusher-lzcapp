@@ -1,0 +1,19 @@
+application:
+  subdomain: password-pusher
+  background_task: true
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://pwpush:5100/
+services:
+  pwpush:
+    # upstream: pglombardo/pwpush:2.12.0
+    image: pglombardo/pwpush:2.12.0
+    environment:
+      - DATABASE_URL=sqlite3:///opt/PasswordPusher/data/pwpush.sqlite3
+    binds:
+      - /lzcapp/var/data:/opt/PasswordPusher/data
+    setup_script: |
+      mkdir -p /opt/PasswordPusher/data
+      chown -R 1000:1000 /opt/PasswordPusher/data
