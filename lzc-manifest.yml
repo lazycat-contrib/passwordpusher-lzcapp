@@ -8,8 +8,8 @@ application:
       backend: http://pwpush:5100/
 services:
   pwpush:
-    # upstream: pglombardo/pwpush:2.16.0
-    image: registry.lazycat.cloud/czyt/pglombardo/pwpush:0a7a4b4aade9c45d
+    # upstream: pglombardo/pwpush:2.16.1
+    image: registry.lazycat.cloud/czyt/pglombardo/pwpush:f7832f45d643542c
     environment:
       - DATABASE_URL=sqlite3:///opt/PasswordPusher/data/pwpush.sqlite3
     binds:
