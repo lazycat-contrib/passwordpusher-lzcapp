@@ -1,6 +1,6 @@
 package: cloud.lazycat.app.password-pusher
 license: Apache-2.0
-version: 2.16.2
+version: 2.17.0
 name: Password Pusher
 description: "Password Pusher 是一个用来分享密码、文本甚至文件的工具，但它和普通的聊天软件不一样！它会生成一个带加密的“一次性链接”，对方只能在规定的时间内或有限的查看次数中访问。一旦次数用完或时间到期，内容会自动消失，最大限度保护你的隐私。"
 min_os_version: "1.5.0"
